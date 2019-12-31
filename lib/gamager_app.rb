@@ -29,6 +29,7 @@ def home
         puts "Your name"
         @@username = gets.chomp
         if User.new_user(@@username, email) != false
+          system "clear"
           logo
           puts "Hello #{@@username}, welcome to Gamager!"
           game_options
@@ -70,43 +71,43 @@ end
 
     end
 
-  def game_options
-    puts "So... what do you want to do now?"
-    puts "1. See game list"
-    puts "2. Search game"
-    puts "3. Im not even supposed to be here today!\n\n"
-    print "Your choice: "
-    user_choice = gets.chomp.to_i
-  while user_choice != 3
-    case user_choice
-      when 1
-        #puts full_game_list
-        if Game.new_user(@@username, email) != false
-          logo
-          puts "Hello #{@@username}, welcome to Gamager!"
-          game_options
-        else
-          puts "We're sorry, but the user: '#{@@username}' , already exists in our system."
-        end
-        when 2
-          ##puts search by title
+  # def game_options
+  #   puts "So... what do you want to do now?"
+  #   puts "1. See game list"
+  #   puts "2. Search game"
+  #   puts "3. Im not even supposed to be here today!\n\n"
+  #   print "Your choice: "
+  #   user_choice = gets.chomp.to_i
+  # while user_choice != 3
+  #   case user_choice
+  #     when 1
+  #       #puts full_game_list
+  #        Game.all
+  #         logo
+  #         puts "Hello #{@@username}, welcome to Gamager!"
+  #         game_options
+  #       else
+  #         puts "We're sorry, but the user: '#{@@username}' , already exists in our system."
+  #       end
+  #       when 2
+  #         ##puts search by title
           
-          puts "Please enter the game title you wish to see: "
-          game_name = gets.chomp
-          if 
-          else
-            puts "We're sorry, but the user: '#{@@username}' , doesnt exist in our system, please creat a new user."
-          end
-        when 3
-        else 
-          puts "Invalid input, please try again."
-          user_choice = gets.chomp
-      end
-    end  
+  #         puts "Please enter the game title you wish to see: "
+  #         game_name = gets.chomp
+  #         if 
+  #         else
+  #           puts "We're sorry, but the user: '#{@@username}' , doesnt exist in our system, please creat a new user."
+  #         end
+  #       when 3
+  #       else 
+  #         puts "Invalid input, please try again."
+  #         user_choice = gets.chomp
+  #     end
+  #   end  
 
 
 
 
-  end
+  # end
 
 end
