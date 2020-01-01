@@ -8,10 +8,11 @@ class BaseScreen
 
     def display
         system "clear"
-        puts get_template
-        puts "\n"
-        puts get_menu
-        puts "\n"
+        print get_template
+        puts spacer
+        mapped_menu = get_menu.each_with_index.map { |menu_item, index| "#{index+1}. #{menu_item}" }
+        print mapped_menu.join("\n")
+        puts spacer
         print ">> "
         
     
@@ -36,6 +37,33 @@ class BaseScreen
          "§\t\t\t\tGamager\t\t\t\t\t§\n"+
          "§\t\t\t\t\t\t\t\t\t§\n"+
          "§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§"  
+    end
+
+    def spacer
+        return "\n\n"
+    end
+
+    def self.suspend
+        print "Press any key to continute..."
+        gets.chomp
+    end
+
+    def self.notify(message)
+        puts message
+        suspend
+    end
+
+    def validate_menu_input(user_input, menu_options)
+        return user_input <= menu_options && user_input > 0
+    end
+
+    def interact(choice)
+        latest_choice = choice
+        while !validate_menu_input(latest_choice, get_menu.length)
+            print "Invalid input, please try again: "
+            latest_choice = gets.chomp.to_i
+        end
+        process_menu(latest_choice)
 
     end
 

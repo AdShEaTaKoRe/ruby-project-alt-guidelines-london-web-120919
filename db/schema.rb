@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_12_29_232102) do
     t.integer "developer_id"
   end
 
-  create_table "usergames", force: :cascade do |t|
+  create_table "user_games", force: :cascade do |t|
     t.integer "rating"
     t.integer "game_id"
     t.integer "user_id"

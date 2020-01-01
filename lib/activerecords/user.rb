@@ -7,14 +7,14 @@ class User < ActiveRecord::Base
         if found_user == nil
             user = User.new(username: username, password: password)
             user.save
+            return user
         else
             return false
         end
     end
 
     def self.existing_user(username, password)
-        found_user = User.find_by(username: username, password: password)
-        return found_user != nil
+        return User.find_by(username: username, password: password)
     end    
     
 end
