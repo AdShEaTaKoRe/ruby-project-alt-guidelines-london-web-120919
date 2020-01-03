@@ -8,12 +8,12 @@ class BaseScreen
 
     def display
         system "clear"
-        print get_template
+        print Colors.primary(get_template)
         puts spacer
         mapped_menu = get_menu.each_with_index.map { |menu_item, index| "#{index+1}. #{menu_item}" }
-        print mapped_menu.join("\n")
+        print Colors.secondary(mapped_menu.join("\n"))
         puts spacer
-        print ">> "
+        print Colors.dark(">> ")
         
     
     end
@@ -44,12 +44,12 @@ class BaseScreen
     end
 
     def self.suspend
-        print "Press any key to continute..."
+        print Colors.light("Press any key to continute...")
         gets.chomp
     end
 
     def self.notify(message)
-        puts message
+        puts Colors.light(message)
         suspend
     end
 
@@ -60,7 +60,7 @@ class BaseScreen
     def interact(choice)
         latest_choice = choice
         while !validate_menu_input(latest_choice, get_menu.length)
-            print "Invalid input, please try again: "
+            print Colors.light("Invalid input, please try again: ")
             latest_choice = gets.chomp.to_i
         end
         process_menu(latest_choice)

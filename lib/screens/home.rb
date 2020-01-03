@@ -29,7 +29,7 @@ class HomeScreen < BaseScreen
         case choice
             when 1
                 system "clear"
-                puts get_template + spacer
+                puts Colors.primary(get_template) + spacer
                 print "Your username: "
                 username = gets.chomp
                 print "Your password: "
@@ -46,7 +46,7 @@ class HomeScreen < BaseScreen
                   end
             when 2
                 system "clear"
-                puts get_template + spacer
+                puts Colors.primary(get_template) + spacer
                 print "Your username: "
                 username = gets.chomp
                 print "Your password: "
@@ -61,6 +61,11 @@ class HomeScreen < BaseScreen
                   end
             when 3
                 return "exit"
+            when 4
+                puts "God Mode engaged"
+                BaseScreen.suspend
+                @user = User.existing_user("Test", "test123")
+                return "game menu"
             
         end
 
