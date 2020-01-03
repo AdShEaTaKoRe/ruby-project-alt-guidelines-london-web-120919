@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_12_29_232102) do
   end
 
   create_table "user_games", force: :cascade do |t|
-    t.integer "rating"
+    t.integer "rating", default: 0, null: false
     t.integer "game_id"
     t.integer "user_id"
   end

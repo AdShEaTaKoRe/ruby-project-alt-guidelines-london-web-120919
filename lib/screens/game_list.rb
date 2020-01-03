@@ -7,7 +7,8 @@ class GameListScreen < BaseScreen
 
     def get_menu
         return [
-            "Add to Library", 
+            "Add to Library",
+            "Go to Library", 
             "Back to Store"
         ]
     end
@@ -18,6 +19,8 @@ class GameListScreen < BaseScreen
                 HelperScreen.add_to_library(@user)
                 return "browse"
             when 2
+                return "library menu"
+            when 3
                 return "store menu"
             
         end

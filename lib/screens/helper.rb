@@ -7,7 +7,7 @@ class HelperScreen < BaseScreen
         game_id = gets.chomp.to_i
         selected_game = Game.find_by(id: game_id)
         if selected_game == nil
-            BaseScreen.notify("Game with ID #{game_id} does not exist, please try again.")
+            BaseScreen.notify("Game does not exist, please try again.")
             return false
         elsif UserGame.find_by(user_id: user.id, game_id: selected_game.id) != nil
             BaseScreen.notify("#{selected_game.title} is already in your library.")
