@@ -71,6 +71,8 @@ class SearchGameScreen < BaseScreen
                                 HelperScreen.add_to_library(@user)
                                 return "search"
                             when 2
+                                return "library menu"
+                            when 3
                                 return "store menu"
                         end
                 end
