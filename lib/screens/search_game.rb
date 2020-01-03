@@ -79,10 +79,4 @@ class SearchGameScreen < BaseScreen
                 return "store menu"
         end
     end
-
-
-
-
-
-
 end
