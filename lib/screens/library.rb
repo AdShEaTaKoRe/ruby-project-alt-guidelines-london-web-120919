@@ -1,9 +1,9 @@
 class LibraryMenuScreen < BaseScreen
     def get_template
         template = get_logo + spacer + "Welcome #{@user.username} to Your Library!" + spacer
-        user_games = UserGame.where(user_id: @user.id)
-        if user_games != []
-            template += UserGame.as_string_list(user_games).join("\n")
+        # user_games = User.where(id: @user.id)
+        if @user.usergames.length != 0
+            template += @user.my_games_as_string_list.join("\n")
         else
             template += "Your Library is currenty empty."
         end
